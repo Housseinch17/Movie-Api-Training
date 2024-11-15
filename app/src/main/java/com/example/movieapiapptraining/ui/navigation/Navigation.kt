@@ -8,7 +8,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavHostController
@@ -22,6 +21,7 @@ import com.example.movieapiapptraining.ui.screens.popularMovies.PopularMoviesScr
 import com.example.movieapiapptraining.ui.screens.popularMovies.PopularMoviesViewModel
 import com.example.movieapiapptraining.ui.util.CustomNavType
 import kotlinx.serialization.Serializable
+import org.koin.androidx.compose.koinViewModel
 import kotlin.reflect.typeOf
 
 @Composable
@@ -38,7 +38,8 @@ fun Navigation(modifier: Modifier, navController: NavHostController) {
                 val parentBackStackEntry: NavBackStackEntry =
                     navController.getBackStackEntry(MovieScreen.PopularMoviesGraph)
                 val popularMoviesViewModel =
-                    hiltViewModel<PopularMoviesViewModel>(parentBackStackEntry)
+                    koinViewModel<PopularMoviesViewModel>()
+
                 val popularMoviesUiState by popularMoviesViewModel.popularMoviesState.collectAsStateWithLifecycle()
 
                 PopularMoviesScreen(

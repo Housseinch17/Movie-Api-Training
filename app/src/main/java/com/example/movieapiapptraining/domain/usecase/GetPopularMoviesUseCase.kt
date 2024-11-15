@@ -1,11 +1,11 @@
 package com.example.movieapiapptraining.domain.usecase
 
 import com.example.movieapiapptraining.data.datasource.MovieRepositoryImpl
+import com.example.movieapiapptraining.domain.MovieRepository
 import com.example.movieapiapptraining.ui.screens.popularMovies.PopularMoviesResponse
 import kotlinx.coroutines.flow.Flow
-import javax.inject.Inject
 
-class GetPopularMoviesUseCase @Inject constructor(
+class GetPopularMoviesUseCase(
     private val movieRepositoryImpl: MovieRepositoryImpl
 ) {
     suspend fun getPopularMovies(movieId: Int, movieGenre: String): Flow<PopularMoviesResponse> =

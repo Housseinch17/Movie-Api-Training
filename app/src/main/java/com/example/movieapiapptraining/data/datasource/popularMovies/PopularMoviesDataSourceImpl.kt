@@ -10,12 +10,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
-import javax.inject.Inject
-import javax.inject.Named
 
-class PopularMoviesDataSourceImpl @Inject constructor(
+class PopularMoviesDataSourceImpl(
     private val movieApiService: MovieApiService,
-    @Named("DispatchersIO") private val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO,
+    private val coroutineDispatcher: CoroutineDispatcher = Dispatchers.IO,
 ) : PopularMoviesDataSource {
 
     private val refreshIntervalMs: Long = 50000

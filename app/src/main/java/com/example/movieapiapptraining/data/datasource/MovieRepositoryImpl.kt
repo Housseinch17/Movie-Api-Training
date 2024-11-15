@@ -1,15 +1,15 @@
 package com.example.movieapiapptraining.data.datasource
 
 import android.util.Log
+import com.example.movieapiapptraining.data.datasource.popularMovies.PopularMoviesDataSource
 import com.example.movieapiapptraining.data.datasource.popularMovies.PopularMoviesDataSourceImpl
 import com.example.movieapiapptraining.domain.MovieRepository
 import com.example.movieapiapptraining.ui.screens.popularMovies.PopularMoviesResponse
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import retrofit2.HttpException
-import javax.inject.Inject
 
-class MovieRepositoryImpl @Inject constructor(
+class MovieRepositoryImpl(
     private val popularMoviesDataSourceImpl: PopularMoviesDataSourceImpl,
 ) : MovieRepository {
 

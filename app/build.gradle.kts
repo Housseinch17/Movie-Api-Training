@@ -72,6 +72,8 @@ dependencies {
 
     // Koin for Android
     implementation(libs.koin.android)
+    // Koin for Jetpack Compose (if using Jetpack Compose)
+    implementation (libs.koin.androidx.compose)
 
     //Hilt
     implementation(libs.hilt.android)
